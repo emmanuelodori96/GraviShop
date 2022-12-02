@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gravishop/screens/ColumnsScreen.dart';
+import 'package:gravishop/screens/ImageScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,11 +40,31 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
-      body: InkWell(
-        onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>ColumnsScreen()));
-        },
-        child: Text("Columns"),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text("Columns"),
+            leading: Icon(Icons.view_column_outlined),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ColumnsScreen()));
+            },
+            child: Text("Columns"),
+          ),
+          ListTile(
+            title: Text("Image"),
+            leading: Icon(Icons.photo),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ImageScreen()));
+            },
+            child: Text("Images"),
+          ),
+        ],
       ),
     );
   }
